@@ -1,0 +1,52 @@
+database:
+  host: "na03-sql.pebblehost.com"
+  port: 3306
+  database: "customer_774404_root"
+  username: "customer_774404_root"
+  password: "bg8UUJ~uwoHQRg@fpUtx"
+
+FIRST_DISPLAY: 0 #MUST BE ZERO OR SHIT GOES BOOM // SAME FOR FIRST DISPLAY
+LAST_DISPLAY: 900
+
+DISPLAYS:
+  O:
+    name: '&a'
+    rank: 0
+  100:
+    name: '&b'
+    rank: 100
+  250:
+    name: '&d'
+    rank: 250
+  500:
+    name: '&e'
+    rank: 500
+  750:
+    name: '&c'
+    rank: 750
+  900:
+    name: '&4'
+    rank: 900
+
+
+
+MESSAGES:
+  NO_PERMISSION: '&cYou dont have permission to execute this command.'
+  STATISTIC_SET: '[&e+&f] &fYou successfully set the value of &e%statistic% &fto &e%value% &ffor the player &e%target%&f.'
+  STATISTIC_ADDED: '[&e+&f] &fYou successfully added &e%value% &fto the &e%statistic% &fstatistic &ffor the player &e%target%&f.'
+  TARGET_NOT_FOUND: '&cThe player you specified could not be found.'
+  STATS:
+    - ''
+    - '&e&lPlayer Stats &8- &e%player%'
+    - '&e┃ &f✪ Rank: &e%rank%'
+    - '&e┃ &f❂ Rebirth: &e%rebirth%'
+    - '&e┃ &f⛏ Blocks Mined: &e%blocks%'
+    - ''
+    - '&e┃ &f✵ Kills: &e%kills%'
+    - '&e┃ &f☀ Deaths: &e%deaths%'
+    - '&e┃ &f✣ KDR: &e%kdr%'
+    - '&e┃ &f➳ Killstreak: &e%killstreak%'
+    - ''
+    - '&e┃ &f✔ Milestones: &e%milestones%'
+    - '&e┃ &f✤ Boss Kills: &e%bosskills%'
+    - ''

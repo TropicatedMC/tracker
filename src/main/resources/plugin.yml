@@ -1,0 +1,21 @@
+name: tracker
+version: '${project.version}'
+main: com.tropicatedmc.tracker.Tracker
+api-version: '1.19'
+author: Frxq15
+description: Tracker w/ Placeholders
+
+commands:
+  stats:
+    description: stats command
+    usage: /stats
+    aliases: [statistics, s]
+  tracker:
+    description: version command
+    usage: /tracker
+  addstat:
+    description: addstat command
+    aliases: [addstatistic]
+  setstat:
+    description: setstat command
+    aliases: [setstatistic]
