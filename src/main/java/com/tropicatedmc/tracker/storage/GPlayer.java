@@ -108,8 +108,8 @@ public class GPlayer {
     public void uploadPlayerData(Tracker plugin) {
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> plugin.getSqlSetterGetter().updateGPlayerData(this));
     }
-    public void uploadPlayerDataUrgent(Tracker plugin) {
-        getAllPlayerData().forEach((uuid, gPlayer) -> plugin.getSqlSetterGetter().updateGPlayerData(gPlayer));
+    public void uploadPlayerDataUrgent(Tracker plugin, GPlayer gPlayer) {
+        plugin.getSqlSetterGetter().updateGPlayerData(gPlayer);
     }
     public static Map<UUID, GPlayer> getAllPlayerData() {
         return players;

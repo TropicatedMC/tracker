@@ -105,7 +105,7 @@ public final class Tracker extends JavaPlugin {
     public RankUtils getRankUtils() { return rankUtils; }
 
     public void savePlayerData() {
-        GPlayer.getAllPlayerData().forEach((uuid, gPlayer) -> gPlayer.uploadPlayerDataUrgent(this));
+        GPlayer.getAllPlayerData().forEach((uuid, gPlayer) -> gPlayer.uploadPlayerDataUrgent(this, gPlayer));
     }
     public void startSavingTask() {
         taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(instance, new Runnable() {
