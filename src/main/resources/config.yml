@@ -8,6 +8,10 @@ database:
 FIRST_DISPLAY: 0 #MUST BE ZERO OR SHIT GOES BOOM // SAME FOR FIRST DISPLAY
 LAST_DISPLAY: 900
 
+SCOREBOARD_DISPLAYS:
+  RANK: '&e✪ &fRank: &e%rank%'
+  REBIRTH: '&e❂ &fRebirth: &e%rebirth%'
+
 DISPLAYS:
   O:
     name: '&a'

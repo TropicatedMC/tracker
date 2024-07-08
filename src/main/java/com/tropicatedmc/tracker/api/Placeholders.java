@@ -93,6 +93,9 @@ public class Placeholders extends PlaceholderExpansion {
             case "rank_chat":
                 return Tracker.colourize(plugin.getRankUtils().getFormattedDisplay(playerData));
 
+            case "rank_scoreboard":
+                return Tracker.colourize(plugin.getRankUtils().getScoreboardDisplay(playerData));
+
             case "blocks":
                 return String.valueOf(playerData.getBlocks());
 

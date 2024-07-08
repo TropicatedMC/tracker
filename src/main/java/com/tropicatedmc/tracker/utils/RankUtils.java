@@ -34,4 +34,10 @@ public class RankUtils {
         }
         return Tracker.colourize("&8[&5"+gPlayer.getRebirth()+"&8]");
     }
+    public String getScoreboardDisplay(GPlayer gPlayer) {
+        if(gPlayer.getRank() < 1000) {
+            return plugin.getConfig().getString("SCOREBOARD_DISPLAYS.RANK").replace("%rank%", gPlayer.getRank()+"");
+        }
+        return plugin.getConfig().getString("SCOREBOARD_DISPLAYS.REBIRTH").replace("%rebirth%", gPlayer.getRebirth()+"");
+    }
 }
