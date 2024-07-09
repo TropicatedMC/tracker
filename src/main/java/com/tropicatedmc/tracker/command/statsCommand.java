@@ -1,8 +1,11 @@
 package com.tropicatedmc.tracker.command;
 
+import com.edwardbelt.edprison.EdPrison;
+import com.edwardbelt.edprison.storage.obj.EdPrisonPlayer;
 import com.tropicatedmc.tracker.Tracker;
 import com.tropicatedmc.tracker.storage.GPlayer;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

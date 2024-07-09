@@ -12,9 +12,13 @@ SCOREBOARD_DISPLAYS:
   RANK: '&e✪ &fRank: &e%rank%'
   REBIRTH: '&e❂ &fRebirth: &e%rebirth%'
 
+TITLEBAR_DISPLAYS:
+  RANK: '&e✪ &fRank'
+  REBIRTH: '&e❂ &fRebirth'
+
 DISPLAYS:
   O:
-    name: '&a'
+    name: '&e'
     rank: 0
   100:
     name: '&b'
@@ -23,7 +27,7 @@ DISPLAYS:
     name: '&d'
     rank: 250
   500:
-    name: '&e'
+    name: '&a'
     rank: 500
   750:
     name: '&c'

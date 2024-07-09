@@ -40,4 +40,10 @@ public class RankUtils {
         }
         return plugin.getConfig().getString("SCOREBOARD_DISPLAYS.REBIRTH").replace("%rebirth%", gPlayer.getRebirth()+"");
     }
+    public String getTitlebarDisplay(GPlayer gPlayer) {
+        if(gPlayer.getRank() < 1000) {
+            return plugin.getConfig().getString("TITLEBAR_DISPLAYS.RANK").replace("%rank%", gPlayer.getRank()+"");
+        }
+        return plugin.getConfig().getString("TITLEBAR_DISPLAYS.REBIRTH").replace("%rebirth%", gPlayer.getRebirth()+"");
+    }
 }

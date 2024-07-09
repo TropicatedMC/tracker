@@ -80,5 +80,12 @@
             <version>2.11.3</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.edwardbelt</groupId>
+            <artifactId>edprison</artifactId>
+            <version>LATEST</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/EdPrison.jar</systemPath>
+        </dependency>
     </dependencies>
 </project>

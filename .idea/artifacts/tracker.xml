@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="tracker">
+    <output-path>$PROJECT_DIR$/out/artifacts/tracker</output-path>
+    <root id="archive" name="tracker.jar">
+      <element id="module-output" name="tracker" />
+    </root>
+  </artifact>
+</component>

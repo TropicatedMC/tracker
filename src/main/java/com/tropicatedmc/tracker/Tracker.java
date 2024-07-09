@@ -1,5 +1,6 @@
 package com.tropicatedmc.tracker;
 
+import com.edwardbelt.edprison.EdPrison;
 import com.tropicatedmc.tracker.api.PlaceholderAPI;
 import com.tropicatedmc.tracker.command.addstatCommand;
 import com.tropicatedmc.tracker.command.setstatCommand;
@@ -11,6 +12,7 @@ import com.tropicatedmc.tracker.storage.SQLListeners;
 import com.tropicatedmc.tracker.storage.SQLManager;
 import com.tropicatedmc.tracker.storage.SQLSetterGetter;
 import com.tropicatedmc.tracker.utils.CommandUtils;
+import com.tropicatedmc.tracker.utils.Listeners;
 import com.tropicatedmc.tracker.utils.RankUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -41,8 +43,8 @@ public final class Tracker extends JavaPlugin {
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
+        log("Plugin enabling.");
         initialize();
-        log("Plugin enabled.");
         // Plugin startup logic
 
     }
@@ -80,6 +82,7 @@ public final class Tracker extends JavaPlugin {
         rankUtils = new RankUtils();
         getPlaceholderAPI().setupPapi();
         Bukkit.getPluginManager().registerEvents(new SQLListeners(), this);
+        Bukkit.getPluginManager().registerEvents(new Listeners(), this);
         getCommand("stats").setExecutor(new statsCommand());
         getCommand("tracker").setExecutor(new trackerCommand());
         getCommand("setstat").setExecutor(new setstatCommand());
@@ -101,6 +104,7 @@ public final class Tracker extends JavaPlugin {
     }
 
     public CommandUtils getCommandUtils() { return commandUtils; }
+
 
     public RankUtils getRankUtils() { return rankUtils; }
 
