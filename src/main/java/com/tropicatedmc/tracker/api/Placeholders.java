@@ -76,6 +76,26 @@ public class Placeholders extends PlaceholderExpansion {
             int p = Integer.parseInt(pos);
             return String.valueOf(plugin.getLeaderboardManager().getNameByStatsPosition("rebirths", p));
         }
+        if(placeholder.startsWith("topdeaths_deaths_")){
+            pos = placeholder.replace("topdeaths_deaths_", "");
+            int p = Integer.parseInt(pos);
+            return String.valueOf(plugin.getLeaderboardManager().getStatsByPosition("deaths", p));
+        }
+        if(placeholder.startsWith("topdeaths_name_")){
+            pos = placeholder.replace("topdeaths_name_", "");
+            int p = Integer.parseInt(pos);
+            return String.valueOf(plugin.getLeaderboardManager().getNameByStatsPosition("deaths", p));
+        }
+        if(placeholder.startsWith("topbosskills_bosskills_")){
+            pos = placeholder.replace("topbosskills_bosskills_", "");
+            int p = Integer.parseInt(pos);
+            return String.valueOf(plugin.getLeaderboardManager().getStatsByPosition("bosskills", p));
+        }
+        if(placeholder.startsWith("topbosskills_name_")){
+            pos = placeholder.replace("topbosskills_name_", "");
+            int p = Integer.parseInt(pos);
+            return String.valueOf(plugin.getLeaderboardManager().getNameByStatsPosition("bosskills", p));
+        }
 
         switch(placeholder.toLowerCase()) {
             case "kills":
@@ -97,7 +117,7 @@ public class Placeholders extends PlaceholderExpansion {
                 return Tracker.colourize(plugin.getRankUtils().getScoreboardDisplay(playerData));
 
             case "rank_titlebar":
-                return Tracker.colourize(plugin.getRankUtils().getScoreboardDisplay(playerData));
+                return Tracker.colourize(plugin.getRankUtils().getTitlebarDisplay(playerData));
 
             case "blocks":
                 return String.valueOf(playerData.getBlocks());
@@ -123,6 +143,9 @@ public class Placeholders extends PlaceholderExpansion {
                     return String.valueOf(0);
                 }
                 return df.format(playerData.getKDR())+"";
+
+            case "mine_emoji":
+                return plugin.getCommandUtils().returnEmoji(player);
 
         }
         return null;

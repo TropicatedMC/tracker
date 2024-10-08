@@ -4,6 +4,7 @@ import com.edwardbelt.edprison.EdPrison;
 import com.edwardbelt.edprison.storage.obj.EdPrisonPlayer;
 import com.tropicatedmc.tracker.Tracker;
 import com.tropicatedmc.tracker.storage.GPlayer;
+import com.viaversion.viaversion.api.Via;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -23,10 +24,12 @@ public class statsCommand implements CommandExecutor {
             return true;
         }
         if(args.length == 0) {
+            Bukkit.broadcastMessage(Via.getAPI().getPlayerVersion(p)+"");
             GPlayer gPlayer = GPlayer.getPlayerData(plugin, p.getUniqueId());
             plugin.getConfig().getStringList("MESSAGES.STATS").forEach(line -> {
                 line = line.replace("%player%", p.getName())
                         .replace("%kills%", gPlayer.getKills()+"")
+                        .replace("%emoji%", plugin.getCommandUtils().returnEmoji(p))
                         .replace("%deaths%", gPlayer.getDeaths()+"")
                         .replace("%kdr%", gPlayer.getKDRString())
                         .replace("%killstreak%", gPlayer.getKillstreak()+"")
@@ -55,6 +58,7 @@ public class statsCommand implements CommandExecutor {
             plugin.getConfig().getStringList("MESSAGES.STATS").forEach(line -> {
                 line = line.replace("%player%", target.getName())
                         .replace("%kills%", gPlayer.getKills()+"")
+                        .replace("%emoji%", plugin.getCommandUtils().returnEmoji(p))
                         .replace("%deaths%", gPlayer.getDeaths()+"")
                         .replace("%kdr%", gPlayer.getKDRString())
                         .replace("%killstreak%", gPlayer.getKillstreak()+"")

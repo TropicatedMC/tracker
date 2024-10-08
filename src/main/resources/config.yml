@@ -16,6 +16,10 @@ TITLEBAR_DISPLAYS:
   RANK: '&e✪ &fRank'
   REBIRTH: '&e❂ &fRebirth'
 
+SYMBOL:
+  LEGACY: '❒'
+  NOT_LEGACY: '⛏'
+
 DISPLAYS:
   O:
     name: '&e'
@@ -46,15 +50,15 @@ MESSAGES:
   STATS:
     - ''
     - '&e&lPlayer Stats &8- &e%player%'
-    - '&e┃ &f✪ Rank: &e%rank%'
-    - '&e┃ &f❂ Rebirth: &e%rebirth%'
-    - '&e┃ &f⛏ Blocks Mined: &e%blocks%'
+    - '&e┃ &e✪ &fRank: &e%rank%'
+    - '&e┃ &e❂ &fRebirth: &e%rebirth%'
+    - '&e┃ &e%emoji% &fBlocks Mined: &e%blocks%'
     - ''
-    - '&e┃ &f✵ Kills: &e%kills%'
-    - '&e┃ &f☀ Deaths: &e%deaths%'
-    - '&e┃ &f✣ KDR: &e%kdr%'
-    - '&e┃ &f➳ Killstreak: &e%killstreak%'
+    - '&e┃ &e✵ &fKills: &e%kills%'
+    - '&e┃ &e☀ &fDeaths: &e%deaths%'
+    - '&e┃ &e✣ &fKDR: &e%kdr%'
+    - '&e┃ &e➳ &fKillstreak: &e%killstreak%'
     - ''
-    - '&e┃ &f✔ Milestones: &e%milestones%'
-    - '&e┃ &f✤ Boss Kills: &e%bosskills%'
+    - '&e┃ &e✔ &fMilestones: &e%milestones%'
+    - '&e┃ &e✤ &fBoss Kills: &e%bosskills%'
     - ''

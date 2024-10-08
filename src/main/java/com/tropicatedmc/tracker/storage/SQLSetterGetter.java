@@ -2,6 +2,7 @@ package com.tropicatedmc.tracker.storage;
 
 import com.tropicatedmc.tracker.Tracker;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,6 +26,25 @@ public class SQLSetterGetter {
             e.printStackTrace();
         }
         return false;
+    }
+    public void updatePlayerName(Player player) {
+        if(!playerExists(player.getUniqueId())) { return; }
+        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PreparedStatement selectPlayer = sqlManager.getConnection().prepareStatement("SELECT * FROM tracker WHERE uuid = ?;");
+                selectPlayer.setString(1, player.getUniqueId().toString());
+                ResultSet playerResult = selectPlayer.executeQuery();
+                if (playerResult.next() && !playerResult.getString("player").equals(player.getName())) {
+                    PreparedStatement updateName = sqlManager.getConnection().prepareStatement("UPDATE tracker SET player = ? WHERE uuid = ?;");
+                    updateName.setString(1, player.getName());
+                    updateName.setString(2, player.getUniqueId().toString());
+                    updateName.executeUpdate();
+                }
+                playerResult.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
     }
     public void createTable() {
         Bukkit.getScheduler().runTaskAsynchronously(plugin.getInstance(), () -> {
@@ -178,6 +198,36 @@ public class SQLSetterGetter {
             LinkedHashMap<String, Integer> players = new LinkedHashMap<>();
             while (results != null && results.next()) {
                 players.put(results.getString("player"), results.getInt("rebirth"));
+            }
+            return players;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public LinkedHashMap<String, Integer> getTopDeaths() {
+        try {
+            PreparedStatement statement = sqlManager.getConnection().prepareStatement
+                    ("SELECT player, deaths FROM tracker GROUP BY player ORDER BY `deaths` DESC LIMIT 10");
+            ResultSet results = statement.executeQuery();
+            LinkedHashMap<String, Integer> players = new LinkedHashMap<>();
+            while (results != null && results.next()) {
+                players.put(results.getString("player"), results.getInt("deaths"));
+            }
+            return players;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public LinkedHashMap<String, Integer> getTopBossKills() {
+        try {
+            PreparedStatement statement = sqlManager.getConnection().prepareStatement
+                    ("SELECT player, bosskills FROM tracker GROUP BY player ORDER BY `bosskills` DESC LIMIT 10");
+            ResultSet results = statement.executeQuery();
+            LinkedHashMap<String, Integer> players = new LinkedHashMap<>();
+            while (results != null && results.next()) {
+                players.put(results.getString("player"), results.getInt("bosskills"));
             }
             return players;
         } catch (SQLException e) {

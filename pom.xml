@@ -65,6 +65,10 @@
             <id>placeholderapi</id>
             <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
+        <repository>
+            <id>viaversion-repo</id>
+            <url>https://repo.viaversion.com</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -86,6 +90,12 @@
             <version>LATEST</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/EdPrison.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.viaversion</groupId>
+            <artifactId>viaversion-api</artifactId>
+            <version>[5.0.0,6.0.0)</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

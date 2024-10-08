@@ -9,6 +9,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.UUID;
@@ -31,6 +32,10 @@ public class SQLListeners implements Listener {
             GPlayer.removePlayerData(uuid);
         });
     }
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onPlayerLoginEvent(PlayerLoginEvent event) {
+        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> plugin.getSqlSetterGetter().updatePlayerName(event.getPlayer()));
+    }
     @EventHandler
     public void onKill(EntityDeathEvent e) {
         if(e.getEntityType() != EntityType.PLAYER) return;
@@ -40,8 +45,10 @@ public class SQLListeners implements Listener {
         GPlayer gPlayer;
         gPlayer = GPlayer.getPlayerData(plugin, killer.getUniqueId());
         gPlayer.addKill();
+        gPlayer.incrementStreak(1);
         Player killed = (Player) e.getEntity();
         gPlayer = GPlayer.getPlayerData(plugin, killed.getUniqueId());
         gPlayer.addDeath();
+        gPlayer.setKillstreak(0);
     }
 }

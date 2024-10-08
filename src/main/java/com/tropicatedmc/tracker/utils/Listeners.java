@@ -1,5 +1,6 @@
 package com.tropicatedmc.tracker.utils;
 
+import com.edwardbelt.edprison.EdPrison;
 import com.edwardbelt.edprison.events.EdPrisonAddMultiplierCurrency;
 import com.edwardbelt.edprison.events.EdPrisonBlockBreakEvent;
 import com.edwardbelt.edprison.events.EdPrisonEnchantTriggerEvent;
@@ -20,13 +21,13 @@ public class Listeners implements Listener {
         GPlayer gPlayer = GPlayer.getPlayerData(plugin, e.getPlayer().getUniqueId());
         gPlayer.addBlocks((int)e.getBlocks());
     }
-    @EventHandler
-    public void addMultiplier(EdPrisonAddMultiplierCurrency e) {
-        Bukkit.broadcastMessage("------------------------------------");
-        Bukkit.broadcastMessage("CURRENCY : "+e.getCurrency()+ " CURRENT MULTI: "+e.getMultiplier()+ " CURRENT AMOUNT: "+e.getAmount());
-        e.setMultiplier(2);
-        e.setAmount((e.getAmount()*e.getMultiplier()));
-        Bukkit.broadcastMessage("NEW MULTI : "+e.getMultiplier()+ " NEW AMOUNT: "+e.getAmount());
-        Bukkit.broadcastMessage("------------------------------------");
-    }
+   // @EventHandler
+   // //public void addMultiplier(EdPrisonAddMultiplierCurrency e) {
+       // Bukkit.broadcastMessage("------------------------------------");
+        //Bukkit.broadcastMessage("CURRENCY : "+e.getCurrency()+ " CURRENT MULTI: "+e.getMultiplier()+ " CURRENT AMOUNT: "+e.getAmount());
+       // e.setMultiplier(2);
+       // e.setAmount((e.getAmount()*e.getMultiplier()));
+       // Bukkit.broadcastMessage("NEW MULTI : "+e.getMultiplier()+ " NEW AMOUNT: "+e.getAmount());
+       // Bukkit.broadcastMessage("------------------------------------");
+    //}
 }

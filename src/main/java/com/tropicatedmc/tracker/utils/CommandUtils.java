@@ -2,6 +2,8 @@ package com.tropicatedmc.tracker.utils;
 
 import com.tropicatedmc.tracker.Tracker;
 import com.tropicatedmc.tracker.storage.GPlayer;
+import com.viaversion.viaversion.api.Via;
+import org.bukkit.entity.Player;
 
 public class CommandUtils {
     Tracker plugin = Tracker.getInstance();
@@ -83,5 +85,11 @@ public class CommandUtils {
                 plugin.log("Error occurred whilst assigning statistic "+statistic+" to "+gPlayer.getName()+" (VALUE = "+value+")");
                 return;
         }
+    }
+    public String returnEmoji(Player player) {
+        if(Via.getAPI().getPlayerVersion(player) < 50) {
+            return plugin.getConfig().getString("SYMBOL.LEGACY");
+        }
+        return plugin.getConfig().getString("SYMBOL.NOT_LEGACY");
     }
 }
