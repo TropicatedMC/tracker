@@ -1,9 +1,9 @@
 database:
-  host: "na03-sql.pebblehost.com"
+  host: ""
   port: 3306
-  database: "customer_774404_root"
-  username: "customer_774404_root"
-  password: "bg8UUJ~uwoHQRg@fpUtx"
+  database: ""
+  username: ""
+  password: ""
 
 FIRST_DISPLAY: 0 #MUST BE ZERO OR SHIT GOES BOOM // SAME FOR FIRST DISPLAY
 LAST_DISPLAY: 900
