@@ -1,5 +1,7 @@
 package com.tropicatedmc.tracker.utils;
 
+import com.edwardbelt.edprison.EdPrison;
+import com.edwardbelt.edprison.storage.obj.EdPrisonPlayer;
 import com.tropicatedmc.tracker.Tracker;
 import com.tropicatedmc.tracker.storage.GPlayer;
 import com.viaversion.viaversion.api.Via;
@@ -28,6 +30,7 @@ public class CommandUtils {
 
             case "rank":
                 gPlayer.setRank(value);
+                EdPrison.getInstance().getApi().getLevelApi().setLevel(gPlayer.getUUID(), "rankup", value);
                 return;
 
             case "rebirth":

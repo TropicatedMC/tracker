@@ -24,7 +24,6 @@ public class statsCommand implements CommandExecutor {
             return true;
         }
         if(args.length == 0) {
-            Bukkit.broadcastMessage(Via.getAPI().getPlayerVersion(p)+"");
             GPlayer gPlayer = GPlayer.getPlayerData(plugin, p.getUniqueId());
             plugin.getConfig().getStringList("MESSAGES.STATS").forEach(line -> {
                 line = line.replace("%player%", p.getName())
