@@ -112,6 +112,10 @@ public final class Tracker extends JavaPlugin {
         GPlayer.getAllPlayerData().forEach((uuid, gPlayer) -> gPlayer.uploadPlayerDataUrgent(this, gPlayer));
     }
     public void startSavingTask() {
+        if (!sqlManager.isConnected() && !sqlManager.connect()) {
+            getLogger().severe("Can't establish a database connection!");
+            return;
+        }
         taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(instance, new Runnable() {
             @Override
             public void run() {

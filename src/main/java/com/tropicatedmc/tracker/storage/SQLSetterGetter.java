@@ -161,6 +161,10 @@ public class SQLSetterGetter {
         }
     }
     public LinkedHashMap<String, Integer> getTopKills() {
+        if (!sqlManager.isConnected() && !sqlManager.connect()) {
+            plugin.getLogger().severe("Can't establish a database connection!");
+            return null;
+        }
         try {
             PreparedStatement statement = sqlManager.getConnection().prepareStatement
                     ("SELECT player, kills FROM tracker GROUP BY player ORDER BY `kills` DESC LIMIT 10");
@@ -176,6 +180,10 @@ public class SQLSetterGetter {
         return null;
     }
     public LinkedHashMap<String, Integer> getTopBlocks() {
+        if (!sqlManager.isConnected() && !sqlManager.connect()) {
+            plugin.getLogger().severe("Can't establish a database connection!");
+            return null;
+        }
         try {
             PreparedStatement statement = sqlManager.getConnection().prepareStatement
                     ("SELECT player, blocks FROM tracker GROUP BY player ORDER BY `blocks` DESC LIMIT 10");
@@ -191,6 +199,10 @@ public class SQLSetterGetter {
         return null;
     }
     public LinkedHashMap<String, Integer> getTopRebirths() {
+        if (!sqlManager.isConnected() && !sqlManager.connect()) {
+            plugin.getLogger().severe("Can't establish a database connection!");
+            return null;
+        }
         try {
             PreparedStatement statement = sqlManager.getConnection().prepareStatement
                     ("SELECT player, rebirth FROM tracker GROUP BY player ORDER BY `rebirth` DESC LIMIT 10");
@@ -206,6 +218,10 @@ public class SQLSetterGetter {
         return null;
     }
     public LinkedHashMap<String, Integer> getTopDeaths() {
+        if (!sqlManager.isConnected() && !sqlManager.connect()) {
+            plugin.getLogger().severe("Can't establish a database connection!");
+            return null;
+        }
         try {
             PreparedStatement statement = sqlManager.getConnection().prepareStatement
                     ("SELECT player, deaths FROM tracker GROUP BY player ORDER BY `deaths` DESC LIMIT 10");
@@ -221,6 +237,10 @@ public class SQLSetterGetter {
         return null;
     }
     public LinkedHashMap<String, Integer> getTopBossKills() {
+        if (!sqlManager.isConnected() && !sqlManager.connect()) {
+            plugin.getLogger().severe("Can't establish a database connection!");
+            return null;
+        }
         try {
             PreparedStatement statement = sqlManager.getConnection().prepareStatement
                     ("SELECT player, bosskills FROM tracker GROUP BY player ORDER BY `bosskills` DESC LIMIT 10");
